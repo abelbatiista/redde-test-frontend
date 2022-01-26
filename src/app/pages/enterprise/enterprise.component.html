@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h2>Enterprise: {{ id | uppercase }}</h2>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <form class="row g-2" autocomplete="off" [formGroup]="form" (ngSubmit)="save()">
+                    <div *ngIf="id != 'new'" class="form-floating my-2 col-12">
+                        <input type="text" class="form-control" id="id" placeholder="ID" formControlName="id" readonly>
+                        <label for="id">ID</label>
+                    </div>
+                    <div class="form-floating my-2 col-12">
+                        <input type="text" class="form-control" id="rnc" placeholder="RNC" formControlName="rnc" [readonly]="id != 'new'">
+                        <label for="rnc">RNC</label>
+                        <p *ngIf="invalidField('rnc')" class="text-danger">RNC is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                        <label for="name">Name</label>
+                        <p *ngIf="invalidField('name')" class="text-danger">Name is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="comercial" placeholder="Comercial Name" formControlName="comercial">
+                        <label for="comercial">Comercial Name</label>
+                        <p *ngIf="invalidField('comercial')" class="text-danger">Comercial Name is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="category" placeholder="Category" formControlName="category">
+                        <label for="category">Category</label>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="payment" placeholder="Payment Scheme" formControlName="payment">
+                        <label for="payment">Payment Scheme</label>
+                        <p *ngIf="invalidField('payment')" class="text-danger">Payment Scheme is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12">
+                        <input type="text" class="form-control" id="status" placeholder="Status" formControlName="status">
+                        <label for="status">Status</label>
+                        <p *ngIf="invalidField('status')" class="text-danger">Status is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="activity" placeholder="Economic Activity" formControlName="activity">
+                        <label for="activity">Economic Activity</label>
+                        <p *ngIf="invalidField('activity')" class="text-danger">Economic Activity is required.</p>
+                    </div>
+                    <div class="form-floating my-2 col-12 col-md-6">
+                        <input type="text" class="form-control" id="branch" placeholder="Government Branch" formControlName="branch">
+                        <label for="branch">Government Branch</label>
+                        <p *ngIf="invalidField('branch')" class="text-danger">Branch is required.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 d-grid gap-2">
+                            <button type="submit" class="btn btn-outline-dark">Save</button>
+                        </div>
+                        <div class="col-12 col-md-6 d-grid gap-2">
+                            <button type="button" class="btn btn-outline-danger" [routerLink]="['/pages', 'enterprises']">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

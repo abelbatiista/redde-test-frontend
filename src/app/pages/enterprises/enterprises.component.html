@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col">
+        <div class="row my-2">
+            <div class="col">
+                <h2>Enterprises</h2>
+            </div>
+            <div class="col text-end">
+                <button type="button" class="btn btn-outline-dark" [routerLink]="['/pages', 'enterprise', 'new']">
+                    <i class="fas fa-plus"></i>
+                    Add Enterprise
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col table-responsive">
+                <table class="table table-hover table-dark table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">RNC</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Comercial Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Payment Scheme</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Economic Activity</th>
+                            <th scope="col">Guvernamental Branch</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="enterprise$.length > 0">
+                        <tr *ngFor="let enterprise of enterprise$">
+                            <th scope="row">{{ enterprise.id }}</th>
+                            <td>{{ enterprise.rnc }}</td>
+                            <td>{{ enterprise.name }}</td>
+                            <td>{{ enterprise.comercial }}</td>
+                            <td>{{ enterprise.category }}</td>
+                            <td>{{ enterprise.payment }}</td>
+                            <td>{{ enterprise.status }}</td>
+                            <td>{{ enterprise.activity }}</td>
+                            <td>{{ enterprise.branch }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-outline-success" [routerLink]="['/pages', 'enterprise', 'detail', enterprise.id]"><i class="fas fa-mouse-pointer"></i></button>
+                                    <button type="button" class="btn btn-outline-warning" [routerLink]="['/pages', 'enterprise', enterprise.id]"><i class="fas fa-edit"></i></button>
+                                    <button type="button" class="btn btn-outline-danger" (click)="delete(enterprise.id!)"><i class="fas fa-trash-alt"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

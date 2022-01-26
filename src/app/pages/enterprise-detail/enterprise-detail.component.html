@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h2>Enterprise: {{ enterprise!.id }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="card text-white bg-dark" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ enterprise!.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ enterprise!.comercial }}</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{ enterprise!.rnc }}</li>
+                            <li class="list-group-item">{{ enterprise!.category }}</li>
+                            <li class="list-group-item">{{ enterprise!.payment }}</li>
+                            <li class="list-group-item">{{ enterprise!.status }}</li>
+                            <li class="list-group-item">{{ enterprise!.activity }}</li>
+                            <li class="list-group-item">{{ enterprise!.branch }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <button type="button" class="btn btn-outline-danger" [routerLink]="['/pages', 'enterprises']">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
